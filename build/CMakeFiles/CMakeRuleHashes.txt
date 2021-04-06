@@ -1,0 +1,6 @@
+# Hashes of file build rules.
+56d2bef4136d76a26527d58d986d72a5 src/server/cpp_interface.generated
+9e7edac06e9dc8df1b44073ab7d071aa src/server/cpp_interface_internal.generated
+20c81b86b3dbe02e2b593d9a378f8ae5 src/server/cpp_module.generated
+a654f396645cd024f2493cf545be118a src/server/cpp_server_internal.generated
+99785d8137b6951835895c331a091c39 src/server/violencedetectionmodule.kmd.json

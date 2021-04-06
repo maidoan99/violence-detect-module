@@ -1,0 +1,2 @@
+/usr/bin/ar qc libkmsviolencedetectionmoduleinterface.a  CMakeFiles/kmsviolencedetectionmoduleinterface.dir/interface/generated-cpp/ViolenceDetectionModuleInternal.cpp.o CMakeFiles/kmsviolencedetectionmoduleinterface.dir/interface/generated-cpp/ViolenceDetectionModule.cpp.o
+/usr/bin/ranlib libkmsviolencedetectionmoduleinterface.a
