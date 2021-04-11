@@ -12,6 +12,8 @@ namespace violencedetectionmodule
 
 ViolenceDetectionModuleOpenCVImpl::ViolenceDetectionModuleOpenCVImpl ()
 {
+      this->filterType = 0;
+      this->edgeValue = 125;
 }
 
 /*
@@ -19,14 +21,67 @@ ViolenceDetectionModuleOpenCVImpl::ViolenceDetectionModuleOpenCVImpl ()
  * contains the current frame. You should insert your image processing code
  * here. Any changes in mat, will be sent through the Media Pipeline.
  */
+
+ int l=0;
+ int frame_count=0;
+ CascadeClassifier c;
 void ViolenceDetectionModuleOpenCVImpl::process (cv::Mat &mat)
 {
   // FIXME: Implement this
-   cv::Point textOrg(100, 100);
-   putText( mat, "Hello from Meetrix.IO", textOrg, 1, 2, cv::Scalar(0, 0, 0) );
+   cv::Mat matimg;
+   	cv::cvtColor(mat, matimg, COLOR_BGRA2BGR);
+   	cv::Mat matBN;//(mat.rows, mat.cols, CV_8UC3);
+   	cv::cvtColor(mat, matBN, COLOR_BGRA2BGR);
+   	cv::resize(matBN,matBN,cv::Size(matBN.cols/4,matBN.rows/4));
+
+      	static int i=0;
+
+     	std::string xml_path="/home/Music/haarcascade_frontalface_alt.xml";
+   	if(i==0)
+   	{
+   		if(c.load(xml_path))
+   	   	{
+   			 printf("Loaded xml\n");
+   	   	}
+   		i++;
+   	}
+   	std::vector<Rect> faces;
+   	cv::cvtColor(matBN, matBN, CV_RGB2GRAY);
+   	c.detectMultiScale( matBN, faces , 1.1 , 2, 0 | CASCADE_SCALE_IMAGE, Size(matBN.cols/4,matBN.cols/4) );
+   	int m=faces.size();
+   	for( int i = 0; i < m; i++ )
+   	{
+   		char avg[200];
+   		sprintf(avg,"%d",filterType);
+   		cv::putText(matimg, avg, cv::Point(20,20), cv::FONT_HERSHEY_SIMPLEX, 0.6, Scalar(0, 255, 0), 1, 8);
+   		char filename1[128];
+   		sprintf(filename1, "/var/log/kurento-media-server/android_op/result_%06d.jpg", frame_count);
+   		cv::imwrite(filename1, matimg);
+   		frame_count++;
+   	}
+           if(m > 0)
+   	{
+   		try {
+   			int facePoints = 10;
+   			FaceDetected event (getSharedFromThis(), "Face-detected", facePoints);
+   		      	signalFaceDetected (event);
+   		}catch (std::bad_weak_ptr &e) {}
+   		    catch(std::exception const & ex){
+   		      std::cout<<"COUNT EXT: "<< std::endl<<std::flush;
+   		}
+   	}
+     	cvtColor (matimg, mat, COLOR_BGR2BGRA);
 }
 
+void OpencvPluginSampleOpenCVImpl::setFilterType (int filterType)
+{
+  this->filterType = filterType;
+}
 
+void OpencvPluginSampleOpenCVImpl::setEdgeThreshold (int edgeValue)
+{
+  this->edgeValue = edgeValue;
+}
 
 } /* violencedetectionmodule */
 } /* module */
