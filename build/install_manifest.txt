@@ -1,0 +1,12 @@
+/usr/lib/x86_64-linux-gnu/libkmsviolencedetectionmoduleinterface.a
+/usr/include/kurento/modules/violencedetectionmodule/ViolenceDetectionModule.hpp
+/usr/lib/x86_64-linux-gnu/pkgconfig/kmsviolencedetectionmodule.pc
+/usr/lib/x86_64-linux-gnu/libkmsviolencedetectionmoduleimpl.so.0.0.1~.g
+/usr/lib/x86_64-linux-gnu/libkmsviolencedetectionmoduleimpl.so.0
+/usr/lib/x86_64-linux-gnu/libkmsviolencedetectionmoduleimpl.so
+/usr/include/kurento/modules/violencedetectionmodule/ViolenceDetectionModuleImpl.hpp
+/usr/include/kurento/modules/violencedetectionmodule/ViolenceDetectionModuleOpenCVImpl.hpp
+/usr/include/kurento/modules/violencedetectionmodule/ViolenceDetectionModuleImplFactory.hpp
+/usr/lib/x86_64-linux-gnu/kurento/modules/libkmsviolencedetectionmodulemodule.so
+/usr/share/cmake-3.10/Modules/FindKMSVIOLENCEDETECTIONMODULE.cmake
+/usr/share/kurento/modules/violencedetectionmodule.kmd.json

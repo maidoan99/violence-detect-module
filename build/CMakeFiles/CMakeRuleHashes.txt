@@ -1,0 +1,8 @@
+# Hashes of file build rules.
+2d0a77c7a0b38412b3518ddaebc8fff9 src/server/CMakeFiles/js
+7794ae739dabfb6af1f66b95491a3b16 src/server/CMakeFiles/js_install
+bcbb62edd83f1497233342b00a946d32 src/server/cpp_interface.generated
+df038a1f35f196ae38e36444ba9e1ac8 src/server/cpp_interface_internal.generated
+bea518c60478908fd06239e48d3008f6 src/server/cpp_module.generated
+65e50f4112374000cfcb126f97a55a7b src/server/cpp_server_internal.generated
+6934879c5e191ccc7fe9dd0a5cde9246 src/server/violencedetectionmodule.kmd.json
